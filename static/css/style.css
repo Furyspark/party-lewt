@@ -114,6 +114,17 @@ body > header {
   margin-top: 1em;
 }
 
+@media all and (min-width: 500px) and (max-width: 799px) {
+  #item-selector .form-input-wrapper {
+    float: left;
+    width: 50%;
+  }
+
+  #item-selector .form-input-wrapper:nth-of-type(3) {
+    clear: left;
+  }
+}
+
 @media all and (min-width: 800px) {
   #item-selector .form-input-wrapper {
     float: left;
