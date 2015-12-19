@@ -1,57 +1,73 @@
 <!doctype html>
 <html>
 	<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Party Lewt</title>
-		<style type="text/css">
-		body {
-			background-color: #343434;
-		}
-
-		div {
-			border: 2px solid black;
-		}
-
-		#container_selection {
-			position: absolute;
-			top: 8px;
-			left: 8px;
-			width: 1024px;
-			height: 256px;
-		}
-
-		#container_item {
-			position: absolute;
-			top: 272px;
-			left: 8px;
-			width: 800px;
-			height: 600px;
-		}
-
-		select {
-			width: 240px;
-		}
-		</style>
+    <link rel="stylesheet" href="/static/css/style.css">
 	</head>
+
 	<body>
-		<div id="container_selection">
-			<select id="games" size="8" onclick="selectGame();">
-			</select>
-			<select id="units" size="8" onclick="selectUnit();">
-			</select>
-			<select id="categories" size="8" onclick="selectCategory();">
-			</select>
-			<select id="items" size="8" multiple="multiple" onclick="selectItem();">
-			</select>
-			<button id="new_item" onclick="newItem();">New Item</button><button id="delete_item" onclick="deleteItem();">Delete Item</button>
-		</div>
-		<div id="container_item">
-			Name: <input id="item_name" />
-			Amount: <input id="item_amount" />
-			Value: <input id="item_value" /><br />
-			Category: <select id="item_category">
-			</select><br /><br /><br />
-			<button onclick="applyItem();">Apply</button>
-		</div>
+    <header>
+      <h1>Party Lewt</h1>
+    </header>
+
+    <div id="container">
+      <section id="item-selector">
+        <h2>Select item</h2>
+
+        <form>
+          <div class="form-input-wrapper">
+            <label for="games">Game</label>
+            <select id="games" size="8" onclick="selectGame();"></select>
+          </div>
+
+          <div class="form-input-wrapper">
+            <label for="units">Unit</label>
+            <select id="units" size="8" onclick="selectUnit();"></select>
+          </div>
+
+          <div class="form-input-wrapper">
+            <label for="categories">Category</label>
+            <select id="categories" size="8" onclick="selectCategory();"></select>
+          </div>
+
+          <div class="form-input-wrapper">
+            <label for="items">Item</label>
+            <select id="items" size="8" multiple="multiple" onclick="selectItem();"></select>
+          </div>
+        </form>
+
+        <button onclick="newItem();">New Item</button>
+        <button class="negative" onclick="deleteItem();">Delete Item</button>
+      </section>
+
+      <section id="item-editor">
+        <h2>Edit item</h2>
+
+        <div class="form-input-wrapper">
+          <label for="item_name">Name:</label>
+          <input type="text" id="item_name" name="item_name" placeholder="Item name">
+        </div>
+
+        <div class="form-input-wrapper">
+          <label for="item_amount">Amount:</label>
+          <input type="text" id="item_amount" name="item_amount" placeholder="0">
+        </div>
+
+        <div class="form-input-wrapper">
+          <label for="item_value">Value:</label>
+          <input type="text" id="item_value" name="item_value" placeholder="0">
+        </div>
+
+        <div class="form-input-wrapper">
+          <label for="item_category">Category:</label>
+          <select type="text" id="item_category" name="item_category"></select>
+        </div>
+
+        <button class="positive" onclick="applyItem();">Save changes</button>
+      </section>
+    </div>
+
 		<script src="/socket.io/socket.io.js"></script>
 		<script>
 			var socket = io();
@@ -198,9 +214,9 @@
 			};
 
 			var clearItem = function() {
-				document.getElementById("item_name").value = "<Name>";
-				document.getElementById("item_amount").value = "<Amount>";
-				document.getElementById("item_value").value = "<Value>";
+				document.getElementById("item_name").value = "";
+				document.getElementById("item_amount").value = "";
+				document.getElementById("item_value").value = "";
 				// Fill categories
 				var elem = document.getElementById("item_category");
 				while(elem.firstChild) {
