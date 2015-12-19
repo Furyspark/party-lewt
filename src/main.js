@@ -1,3 +1,4 @@
+var express = require("express");
 var app = require("express")();
 var http = require("http").Server(app);
 var io = require("socket.io")(http);
@@ -10,6 +11,7 @@ fs.readFile("games.json", "utf8", function(err, data) {
 	games = JSON.parse(data);
 });
 
+app.use('/static', express.static('static'));
 
 app.get("/", function(req, res) {
 	res.sendFile(__dirname + "/index.html");
