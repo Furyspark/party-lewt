@@ -1,7 +1,21 @@
 {
-  "name": "chat-test",
+  "name": "party-lewt",
+  "description": "A loot tracker for Pathfinder campaigns I participate in.",
+  "keywords": ["pathfinder", "rpg", "tracker", "loot", "party"],
+  "bugs": {
+    "url": "https://github.com/MikauSchekzen/party-lewt/issues"
+  },
+  "author": "Mikau Schekzen",
+  "contributors": [
+    "Jasper Bok <hello@jasperbok.nl> (http://jasperbok.nl)"
+  ],
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MikauSchekzen/party-lewt"
+  },
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "dependencies": {
     "express": "^4.13.3",
     "socket.io": "^1.3.7"
