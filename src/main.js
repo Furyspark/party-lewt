@@ -1,15 +1,13 @@
+var fs = require("fs");
+
 var express = require("express");
 var app = require("express")();
 var http = require("http").Server(app);
 var io = require("socket.io")(http);
-var port = 8010;
+var datamanager = require("./src/datamanager");
+var games = datamanager.load();
 
-var fs = require("fs");
-var games;
-fs.readFile("games.json", "utf8", function(err, data) {
-	if(err) {throw err;}
-	games = JSON.parse(data);
-});
+var port = 8010;
 
 app.use('/static', express.static('static'));
 
@@ -35,7 +33,7 @@ io.on("connection", function(socket) {
 			success = true;
 			console.log("Edited item: " + item.name + " in " + games[game].name + "'s " + games[game].units[unit].name + ".");
 			socket.broadcast.emit("edit-item", game, unit, itemIndex, item);
-			saveData();
+			datamanager.save(games);
 		}
 		if(!success) {
 			console.log("Failed to edit item: " + item.name + ".");
@@ -68,10 +66,3 @@ io.on("connection", function(socket) {
 http.listen(port, function() {
 	console.log("Listening on port " + port.toString());
 });
-
-var saveData = function() {
-	fs.writeFile("games.json", JSON.stringify(games), function(err) {
-		if(err) {throw err;}
-		console.log("Data saved.");
-	});
-};
