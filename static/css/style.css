@@ -1,79 +1,79 @@
 * {
-  box-sizing: border-box;
-  font-family: sans-serif;
-  font-size: 16px;
-  margin: 0;
-  padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
 }
 
 body {
-  background-color: #fff;
+	background-color: #fff;
 }
 
 section {
-  margin: 2em 0;
+	margin: 2em 0;
 }
 
 h1 {
-  font-size: 1.4em;
+	font-size: 1.4em;
 }
 
 h2 {
-  font-size: 1.4em;
+	font-size: 1.4em;
 }
 
 button {
-  background-color: #2095f2;
-  border: none;
-  border-radius: 3px;
-  color: #fff;
-  cursor: pointer;
-  font-weight: 200;
-  margin: .8em 0;
-  padding: .3em .6em;
-  transition: background-color .5s;
+	background-color: #2095f2;
+	border: none;
+	border-radius: 3px;
+	color: #fff;
+	cursor: pointer;
+	font-weight: 200;
+	margin: .8em 0;
+	padding: .3em .6em;
+	transition: background-color .5s;
 }
 
 button:hover {
-  background-color: #53c8ff;
+	background-color: #53c8ff;
 }
 
 button + button {
-  margin-left: 1em;
+	margin-left: 1em;
 }
 
 button.positive {
-  background-color: #4bae4f;
+	background-color: #4bae4f;
 }
 
 button.positive:hover {
-  background-color: #7ee182;
+	background-color: #7ee182;
 }
 
 button.negative {
-  background-color: #f44336;
+	background-color: #f44336;
 }
 
 button.negative:hover {
-  background-color: #ff7669;
+	background-color: #ff7669;
 }
 
 /* Common form items */
 
 .form-input-wrapper {
-  display: block;
-  margin-top: .5em;
+	display: block;
+	margin-top: .5em;
 }
 
 label {
-  display: inline-block;
-  width: 5em;
+	display: inline-block;
+	width: 5em;
 }
 
 input[type='text'] {
-  border-radius: 3px;
-  border: 1px solid #000;
-  padding: .2em;
+	border-radius: 3px;
+	border: 1px solid #000;
+	padding: .2em;
 }
 
 select {
@@ -82,59 +82,59 @@ select {
 /* Content wrapper */
 
 #container {
-  margin: 0 auto;
-  width: 94%;
+	margin: 0 auto;
+	width: 94%;
 }
 
 /* Site header */
 
 body > header {
-  background-color: #343434;
-  color: #fefefe;
-  margin-bottom: 2em;
-  padding: .5em 3%;
-  width: 100%;
+	background-color: #343434;
+	color: #fefefe;
+	margin-bottom: 2em;
+	padding: .5em 3%;
+	width: 100%;
 }
 
 /* Item selection area */
 
 #item-selector .form-input-wrapper {
-  width: 100%;
+	width: 100%;
 }
 
 #item-selector form {
-  overflow: auto;
+	overflow: auto;
 }
 
 #item-selector select {
-  width: 100%;
+	width: 100%;
 }
 
 #item-selector select + #item-selector select {
-  margin-top: 1em;
+	margin-top: 1em;
 }
 
 @media all and (min-width: 500px) and (max-width: 799px) {
-  #item-selector .form-input-wrapper {
-    float: left;
-    width: 50%;
-  }
+	#item-selector .form-input-wrapper {
+		float: left;
+		width: 50%;
+	}
 
-  #item-selector .form-input-wrapper:nth-of-type(3) {
-    clear: left;
-  }
+	#item-selector .form-input-wrapper:nth-of-type(3) {
+		clear: left;
+	}
 }
 
 @media all and (min-width: 800px) {
-  #item-selector .form-input-wrapper {
-    float: left;
-    width: 25%;
-  }
+	#item-selector .form-input-wrapper {
+		float: left;
+		width: 25%;
+	}
 }
 
 /* Item edit area */
 
 #item-editor input {
-  max-width: 70%;
-  width: 20em;
+	max-width: 70%;
+	width: 20em;
 }
